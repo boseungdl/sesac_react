@@ -1,0 +1,23 @@
+<script>
+  function solution(polynomial) {
+    let a = 0;
+    let num = 0;
+    polynomial.split('+').forEach((e) => {
+      const arr = [...e.trim()];
+      arr.includes('x')
+        ? !parseInt(e)
+          ? (a += 1)
+          : (a += parseInt(e))
+        : (num += parseInt(e));
+    });
+    if (num && a) {
+      num = ' + ' + num;
+      return a + 'x' + num;
+    } else if (!num && a) {
+      return a + 'x';
+    } else {
+      return num;
+    }
+  }
+  console.log(solution('1x + 3'));
+</script>
